@@ -43,11 +43,11 @@ def handle_message(event):
 
     if msg == '早安':
         r = '早安阿寶～祝你有美好的一天哦'
-    elif msg == ['愛妳', '愛你', 'Love u', 'love you', 'love u']:
+    elif msg in ['愛妳', '愛你', 'Love u', 'love you', 'love u']:
         r = '我也愛你哦 今天工作還好嗎'
     elif msg == '餓了':
         r = '我也餓了，你吃飯了嗎'
-    elif msg = ['想你', '想妳']:
+    elif msg in ['想你', '想妳']:
         r = '我也想你嘻嘻(羞)'
 
     line_bot_api.reply_message(

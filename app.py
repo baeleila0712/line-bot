@@ -39,7 +39,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    r = '請輸入早安/你好/愛你/想你/情侶間常用的關鍵字哦'
+    r = '請輸入早安/愛你/想你或是貼圖'
 
     if '貼圖' in msg:
         sticker_message = StickerSendMessage(
@@ -64,6 +64,16 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=r))
 
+
+    if '長輩圖' in msg:
+        image_message = ImageSendMessage(
+            original_content_url='https://i.imgur.com/uJUYDde.jpg',
+            preview_image_url='https://i.imgur.com/uJUYDde.jpg'
+        )
+        line_bot_api.reply_message(
+                event.reply_token,
+                image_message)
+        return
 
 
 if __name__ == "__main__":

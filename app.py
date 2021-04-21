@@ -41,6 +41,12 @@ def handle_message(event):
     msg = event.message.text
     r = '請輸入早安/你好/愛你/想你/情侶間常用的關鍵字哦'
 
+    if '貼圖' in msg:
+        sticker_message = StickerSendMessage(
+            package_id='6632',
+            sticker_id='11825376'
+        )
+
     if msg == '早安':
         r = '早安阿寶～祝你有美好的一天哦'
     elif msg in ['愛妳', '愛你', 'Love u', 'love you', 'love u']:
@@ -53,6 +59,7 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r))
+
 
 
 if __name__ == "__main__":

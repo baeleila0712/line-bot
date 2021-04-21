@@ -67,8 +67,8 @@ def handle_message(event):
 
     if '長輩圖' in msg:
         image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/uJUYDde.jpg',
-            preview_image_url='https://i.imgur.com/uJUYDde.jpg'
+            original_content_url='hhttps://imgur.com/uJUYDde',
+            preview_image_url='https://imgur.com/uJUYDde'
         )
         line_bot_api.reply_message(
                 event.reply_token,

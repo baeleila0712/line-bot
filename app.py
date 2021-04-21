@@ -13,9 +13,9 @@ from linebot.models import (
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('n2/oMSzCaz1Jr+egWM+Ib4sSruyKp/0J/TxMYm/hIsljg7eQ8NAiq+1DT+cqYe7ucoIsQyGYT+Sqz7RsSIP8HT0VvXrcIyzYdh30evSqZbYnWDmzxSzlGsgo3gbtYN45Up6q/1RVIPu9sAvJfZ+6zgdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('91f197a2d7858652ea8e6ecf594a5a59')
+handler = WebhookHandler('792dd29a8e0b85c5ca672936e3822d9a')
 
-# route = path
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -37,13 +37,10 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    msg = event.message.text
-    s = '你今天好嗎' 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=s))
+        TextSendMessage(text=event.message.text))
 
 
 if __name__ == "__main__":
     app.run()
-

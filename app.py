@@ -46,7 +46,11 @@ def handle_message(event):
             package_id='6632',
             sticker_id='11825376'
         )
-
+        line_bot_api.reply_message(
+            event.reply_token,
+            sticker_message)
+        return
+    
     if msg == '早安':
         r = '早安阿寶～祝你有美好的一天哦'
     elif msg in ['愛妳', '愛你', 'Love u', 'love you', 'love u']:
